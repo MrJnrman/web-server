@@ -1,18 +1,8 @@
 var express = require('express');
 var app = express();
+var middleware = require('./middleware.js');
 
 var PORT = 8000;
-
-var middleware = {
-	requrieAuthentication: function (req, res, next) {
-		console.log('Privat route hit!');
-		next();
-	},
-	logger: function (req, res, next) {
-		console.log('Request: ' + new Date().toString() + ' ' + req.method + ' ' + req.originalUrl);
-		next();
-	},
-};
 
 app.use(middleware.logger);
 
